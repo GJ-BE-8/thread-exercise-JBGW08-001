@@ -26,7 +26,7 @@ public class CounterHandler implements Runnable  {
         }
 
         this.countMaxSize = countMaxSize;
-        this.count=0l;
+        this.count=0L;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class CounterHandler implements Runnable  {
             }
 
         //TODO#2 해당 thread가 isInterrupted() 상태가 false 일 while loop를 실행 할 수 있도록 조건을 추가하세요
-        }while (count<countMaxSize);
+        }while (count<countMaxSize && !Thread.currentThread().isInterrupted());
 
     }
 }
