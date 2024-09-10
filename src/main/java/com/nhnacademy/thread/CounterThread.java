@@ -54,7 +54,7 @@ public class CounterThread extends Thread {
                 throw new RuntimeException(e);
             }
             count++;
-            log.debug("name: {}, count: {}",this.getName(),count);
+            log.debug("thread name: {}, count: {}",this.getName(),count);
 
         }while (count<countMaxSize);
     }
