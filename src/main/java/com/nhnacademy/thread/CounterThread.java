@@ -13,14 +13,12 @@
 package com.nhnacademy.thread;
 
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.Objects;
 
 @Slf4j
 //TODO#1 CounterThread는 Thread를 상속 합니다.
 public class CounterThread extends Thread {
     private final long countMaxSize;
-
     private long count;
 
     public CounterThread(String name, long countMaxSize) {
