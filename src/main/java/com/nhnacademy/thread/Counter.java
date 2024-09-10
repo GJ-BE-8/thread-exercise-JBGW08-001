@@ -25,7 +25,7 @@ public class Counter {
         //TODO#2 this.countMaxSize 초기화 합니다.
 
         //TODO#3 this.count 값을 0으로 초기화 합니다.
-
+    //아이우에어
     }
 
     public void run() {
