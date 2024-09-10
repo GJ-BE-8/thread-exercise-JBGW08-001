@@ -20,7 +20,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        CounterHandler counterHandler = new CounterHandler(10l);
+        CounterHandler counterHandler = new CounterHandler(10L);
         Thread thread = new Thread(counterHandler);
         log.debug("thread-state:{}",thread.getState());
         thread.setName("my-counter");
@@ -28,6 +28,11 @@ public class App
         //TODO#1 thread가 실행 후 (1-10 count 증가 후  아래 로그가 출력 됩니다.)
         //thread.join()을 호출 하면 thread가 종료될 때 까지 main thread가 대기하게 됩니다.
 
+        try {
+            thread.join();
+        }catch (InterruptedException e){
+            throw new RuntimeException(e);
+        }
         log.debug("Application exit!");
         log.debug("thread-state:{}",thread.getState());
     }
