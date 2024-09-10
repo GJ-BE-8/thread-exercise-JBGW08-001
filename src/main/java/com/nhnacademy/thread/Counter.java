@@ -21,7 +21,7 @@ public class Counter {
 
     public Counter(long countMaxSize, long countMaxSize1) {
         //TODO#1 countMaxSize < 0 작다면 IllegalArgumentException 예외가 발생 합니다.
-        if(countMaxSize < 0){
+        if(countMaxSize <= 0){
             throw new IllegalArgumentException("예외발생");
         }
         //TODO#2 this.countMaxSize 초기화 합니다.
@@ -40,16 +40,16 @@ public class Counter {
             */
             try {
                 Thread.sleep(1000);
-                count++;
             }catch (InterruptedException e){
-                log.error(e.getMessage());
+                throw new RuntimeException(e);
             }
+                count++;
             /*TODO#5 count 출력
                 name:{Thread name}, count:{count 변수}
                 Thread name : Thread.currentThread().getName();
                 ex) name:my-thread, count:1
              */
-            log.debug("name{}, count{}",Thread.currentThread().getName(),count);
+            log.debug("name: {}, count: {}",Thread.currentThread().getName(),count);
         }while (count<countMaxSize);
     }
 }
