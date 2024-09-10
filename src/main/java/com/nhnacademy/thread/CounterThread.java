@@ -49,12 +49,13 @@ public class CounterThread extends Thread {
         do {
             try{
                 Thread.sleep(1000);
-                count++;
-                log.debug("name: {}, count: {}",this.getName(),count);
 
             }catch (InterruptedException e){
-                log.error(e.getMessage());
+                throw new RuntimeException(e);
             }
+            count++;
+            log.debug("name: {}, count: {}",this.getName(),count);
+
         }while (count<countMaxSize);
     }
 }
